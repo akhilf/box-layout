@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Layout from "./compoents/hoc/Layout";
+import Contactus from "./compoents/contactus/contactus";
+import Boxwrapper from "./compoents/box/Boxwrapper";
+import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
+  state = {};
+  constructor() {
+    super();
+  }
+  componentDidMount() {
+    console.log("App - Mounted");
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Boxwrapper} />
+            <Route path="/home" exact component={Boxwrapper} />
+            <Route path="/contactus" exact component={Contactus} />
+          </Switch>
+        </Layout>
       </div>
     );
   }
